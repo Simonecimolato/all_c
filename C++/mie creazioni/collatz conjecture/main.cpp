@@ -36,7 +36,7 @@ int collatzOnOneNumber(){
             return 1;
         }
 
-         if (even(n)) {
+         if (n%2==0) {
             n/=2;                   //n/2
             cout<<n<<endl;
             count++;
