@@ -20,12 +20,6 @@ int main() {
     return 0;
 }
 
-
-bool even(int n) {              //this function recognize if n is odd or even
-	if (n%2==0) return true;    //even
-	else return false;          //odd
-}
-
 int collatzOnOneNumber(){
     cout<<"Insert a number: ";
     cin>>n;
@@ -71,7 +65,7 @@ int trueCollatz(){
             n = ((x*3)+1)/2;
 
             while (n>=x){
-                if (even(n))n/=2;       //n/2
+                if (n%2==0)n/=2;       //n/2
                 else n=((n*3)+1)/2;     //after 3n+1 we always get an even number, n=n/2 without checking again
             }
         }
