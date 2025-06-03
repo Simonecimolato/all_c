@@ -2,24 +2,33 @@
 //Simone Cimolato, 25/09/2016
 
 #include <iostream>
+#include <limits>
 using namespace std;
 
 int main(int argc, char** argv) {
-	cout<<"Cosa vuoi fare?:"<<endl<<endl;
-	cout<<"[1] Moltiplicazione. "<<endl;
-	cout<<"[2] Divisione. "<<endl;
-	cout<<"[3] Addizione. "<<endl;
-	cout<<"[4] Sottrazione. "<<endl<<endl;
-	cout<<"Inserisci il numero corrispondente: ";
-	int scelta;
-	cin>>scelta;  
+        while (true) {
+                cout<<"Cosa vuoi fare?:"<<endl<<endl;
+                cout<<"[1] Moltiplicazione. "<<endl;
+                cout<<"[2] Divisione. "<<endl;
+                cout<<"[3] Addizione. "<<endl;
+                cout<<"[4] Sottrazione. "<<endl<<endl;
+                cout<<"Inserisci il numero corrispondente: ";
+                int scelta;
+                cin>>scelta;
 
-	float elemento;
-	float elemento2;
-	double risultato;
-	char altro='y';
-			
-	switch (scelta) {
+                if (cin.fail()) {
+                        cout<<"Input non valido."<<endl<<endl;
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        continue;
+                }
+
+                float elemento;
+                float elemento2;
+                double risultato;
+                char altro='y';
+
+                switch (scelta) {
 		case (1):
 				cout<<"Inserisci il 1 fattore: ";
 				cin>>elemento;
@@ -101,10 +110,13 @@ int main(int argc, char** argv) {
 			}
 			cout<<"Il risultato e': "<<risultato<<endl<<endl;
 			break;
-		default:
-			cout<<"Input non valido."<<endl<<endl;
-			return main(argc, argv);
-	}
-	system("PAUSE");
-	return 0;
+                default:
+                        cout<<"Input non valido."<<endl<<endl;
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        continue;
+                }
+                system("PAUSE");
+                return 0;
+        }
 }
