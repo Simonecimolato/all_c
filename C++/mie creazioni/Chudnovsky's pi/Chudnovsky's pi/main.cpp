@@ -43,21 +43,21 @@ operator<<(std::ostream& dest, __int128_t value){
     return dest;
 }
 
-int factorial(int n);
-int i;
+__int128_t factorial(int n);
+
 double num1 = 426880*sqrt(10005);
-__int128_t num2 = factorial(6*i)*(545140134*i + 13591409);
-__int128_t den1 = factorial(3*i) * pow(factorial(i), i);
-__int128_t den2 = pow(-262537412640768000, i);
 
 
 int main(int argc, const char * argv[]) {
     long double pi = 0;
 
     clock_t start = clock();
-    
-    for (i = 0; i <= 1000; i++) {
-        pi += num2/(den1*den2); //too fucking big
+
+    for (int i = 0; i <= 1000; i++) {
+        __int128_t num2 = factorial(6 * i) * (545140134 * i + 13591409);
+        __int128_t den1 = factorial(3 * i) * pow((long double)factorial(i), i);
+        __int128_t den2 = pow(-262537412640768000, i);
+        pi += num2 / (den1 * den2); //too fucking big
     }
     pi = num1 / pi;
     
@@ -70,6 +70,10 @@ int main(int argc, const char * argv[]) {
     cout<<"Time taken: "<<time<<" seconds"<<endl;
     return 0;
 }
-int factorial(int n){
-    return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
+__int128_t factorial(int n){
+    __int128_t result = 1;
+    for (int j = 2; j <= n; ++j) {
+        result *= j;
+    }
+    return result;
 }
