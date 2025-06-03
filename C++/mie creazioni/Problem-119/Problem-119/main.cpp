@@ -53,9 +53,14 @@ operator<<( std::ostream& dest, __int128_t value )
 
 
 int main(int argc, const char * argv[]) {
-   
+
+    const char* output_path = "Resaults.txt";           // default output file
+    if (argc > 1) {
+        output_path = argv[1];
+    }
+
     ofstream output;
-    output.open("/Users/simonecimolato/Desktop/Resaults.txt");      //this is my desktop, change this path to wherever you want to save the resaults.txt file
+    output.open(output_path);      // path supplied via command-line or defaults to ./Resaults.txt
     
     if (output.fail()) {
         cout<<"An error occurred while opening the output file "<<endl;
