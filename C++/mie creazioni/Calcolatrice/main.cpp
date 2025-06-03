@@ -110,13 +110,9 @@ int main(int argc, char** argv) {
 			}
 			cout<<"Il risultato e': "<<risultato<<endl<<endl;
 			break;
-                default:
-                        cout<<"Input non valido."<<endl<<endl;
-                        cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        continue;
-                }
-                system("PAUSE");
-                return 0;
-        }
+		default:
+			cout<<"Input non valido."<<endl<<endl;
+			return main(argc, argv);
+	}
+        return 0;
 }

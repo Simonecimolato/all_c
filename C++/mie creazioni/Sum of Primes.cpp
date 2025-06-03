@@ -17,11 +17,10 @@ int main()
 		limite=0;
 		return main();	
 	}
-	else if (limite==1) {
-		cout<<"The sum of all the primes below 1 is: 0."<<endl;
-		system("PAUSE");
-		return 0;
-	}
+        else if (limite==1) {
+                cout<<"The sum of all the primes below 1 is: 0."<<endl;
+                return 0;
+        }
 	round(limite);
 	
 	for (long long Numero = 3; Numero <= limite; Numero += 2) {
@@ -35,7 +34,6 @@ int main()
 		cout << percentuale << "% done. \r";
 		}
 		risultato+=5;
-	cout<<"The sum of all the primes below "<<limite<<" is: "<<risultato<<endl<<endl;
-	system("PAUSE");
-	return 0;
+        cout<<"The sum of all the primes below "<<limite<<" is: "<<risultato<<endl<<endl;
+        return 0;
 }
