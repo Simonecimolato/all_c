@@ -105,6 +105,5 @@ int main(int argc, char** argv) {
 			cout<<"Input non valido."<<endl<<endl;
 			return main(argc, argv);
 	}
-	system("PAUSE");
-	return 0;
+        return 0;
 }

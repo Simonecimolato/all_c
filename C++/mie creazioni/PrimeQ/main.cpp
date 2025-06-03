@@ -29,19 +29,16 @@ int main(int argc, char** argv) {
 			while (Div<=radQ) {
 				Resto=number%Div;
 				if (Div==radQ) {
-           			cout<<endl<<number<<" is prime."<<endl<<endl;
-					system("PAUSE");
-					return 0;
+                                cout<<endl<<number<<" is prime."<<endl<<endl;
+                                return 0;
        			}
        			if (Resto==0) {
-					cout<<endl<<number<<" is not prime"<<", it is divisible by "<<Div<<"."<<endl<<endl;
-    				system("PAUSE");
-					return 0;  
+                                cout<<endl<<number<<" is not prime"<<", it is divisible by "<<Div<<"."<<endl<<endl;
+                                return 0;
 				   }
    			Div++;
 		}
 		  
 	}
-	system("PAUSE");
-	return 0;
+        return 0;
 }

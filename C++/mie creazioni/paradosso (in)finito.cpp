@@ -2,7 +2,8 @@
 //Paradosso (in)finito
 
 #include <iostream>
-#include <windows.h>
+#include <chrono>
+#include <thread>
 #include <string>
 
 using namespace std;
@@ -18,10 +19,10 @@ cout<<"esecuzione n:     "<<"tempo (ms):"<<endl;
 cout<<endl;
 
 while (tempo!=0){
-		Sleep(tempo);
-		cout << a <<"                 " << tempo << endl;
-		tempo = tempo/2;
-		a++;
+                std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(tempo)));
+                cout << a <<"                 " << tempo << endl;
+                tempo = tempo/2;
+                a++;
 	}
 
 tot= (a-1);
@@ -35,8 +36,8 @@ if (scelta=="Y" or scelta=="y") {
 	tempo=2000;
 	a=0;
 	tot=0;
-	system("cls");
-	return main();
+        cout << "\033[2J\033[H";
+        return main();
 }
 else if(scelta=="N" or scelta=="n") {
 return (0);	

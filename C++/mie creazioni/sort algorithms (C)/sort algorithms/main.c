@@ -11,6 +11,7 @@
 #define dim 15
 
 void delay(int number_of_seconds);
+void clear_screen(void);
 void arrPrint(void);
 void swap(int j, int w);
 void selection(void);
@@ -121,6 +122,12 @@ void delay(int number_of_milliseconds)
     while (clock() < start_time + number_of_milliseconds);
 }
 
+void clear_screen(void)
+{
+    printf("\033[2J\033[H");
+    fflush(stdout);
+}
+
 void arrPrint(){
     for (k=0;k<dim-1;k++){
         for(m=0;m<toBeSolved[k];m++){
@@ -142,7 +149,7 @@ void swap(int w, int j){
 void selection(){
     for (i=0;i<dim-2;i++){
         for(j=i+1;j<dim-1;j++){
-            system("clear");
+            clear_screen();
             if (toBeSolved[j]<toBeSolved[i]){
                 swap(j,i);
             }
@@ -156,7 +163,7 @@ void insertion(){
     for(i=1;i<dim-1;i++){
         j=i-1;
         while(j >= 0 && toBeSolved[j]>toBeSolved[j+1]){
-            system("clear");
+            clear_screen();
             swap(j,j+1);
             
             j-=1;
@@ -172,7 +179,7 @@ void bubble(){
     while(flag == 1){
         flag = 0;
         for(i = 0; i <= stop; i++){
-            system("clear");
+            clear_screen();
             if(toBeSolved[i+1]<toBeSolved[i]){
                 swap(i,i+1);
                 flag = 1;
@@ -206,7 +213,7 @@ void quicksort(int number[dim],int first,int last){
         pivot=first;
         i=first;
         j=last;
-        system("clear");
+        clear_screen();
         
         count++;
         while(i<j){
